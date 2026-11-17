@@ -10,7 +10,7 @@ const links = [
     <nav id="app-navbar" class="navbar md:navbar-expand fixed-top">
         <div class="container">
             <router-link :to="{name: 'home'}" class="navbar-brand">
-                Study Skills
+                Study Skills Expert
             </router-link>
 
             <button
