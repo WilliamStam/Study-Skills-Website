@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Define the branch you want to automatically bump
-TARGET_BRANCH="pre-main"
+TARGET_BRANCH="main"
 
 # Get current branch
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
