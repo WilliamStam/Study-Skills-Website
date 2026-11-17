@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear();
     <footer id="app-footer" class="border-top py-3">
         <div class="container text-center">
             <span class="text-body-secondary small">
-                &copy; {{ currentYear }} Study Skills. All rights reserved.
+                &copy; {{ currentYear }} Study Skills Expert. All rights reserved.
             </span>
         </div>
     </footer>
