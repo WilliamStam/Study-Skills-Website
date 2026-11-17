@@ -1,4 +1,9 @@
 /// <reference types="vite/client" />
+interface ImportMetaEnv {
+    /** Web3Forms access key for the contact form (repo secret WEB3FORMS_ACCESS_KEY at deploy time) */
+    readonly VITE_WEB3FORMS_ACCESS_KEY?: string;
+}
+
 declare module '*.vue' {
     import type {DefineComponent} from 'vue';
     

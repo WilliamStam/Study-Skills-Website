@@ -41,6 +41,8 @@ jobs:
         env:
           # "/<repo>" for a project site, "" for a user/org site or custom domain
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          # Web3Forms access key for the contact form (Settings → Secrets and variables → Actions)
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
 
       # GitHub Pages has no SPA rewrites: serve the app for unknown paths so deep links
       # (e.g. /about) and refreshes work

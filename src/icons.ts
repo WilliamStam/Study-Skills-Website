@@ -3,6 +3,7 @@ import {
     faCircleInfo,
     faEnvelope,
     faHouse,
+    faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
@@ -18,6 +19,7 @@ library.add(
     faCircleInfo,
     faEnvelope,
     faHouse,
+    faPaperPlane,
     // fa-brands
     faGithub,
 );
