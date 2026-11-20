@@ -1,9 +1,77 @@
+// Transparent header laid over each page's hero photo, as on the old site
 #app-navbar {
-    padding:0;
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 10;
+    min-height: var(--app-navbar-height);
+    padding: .5rem 0;
+    background: transparent;
+    box-shadow: none;
+
+    .navbar-brand {
+        padding: 0;
+    }
+
+    .navbar-logo {
+        display: block;
+        width: 6rem;
+        height: auto;
+
+        @media (max-width: 767.98px) {
+            width: 4.5rem;
+        }
+    }
+
+    .navbar-toggler {
+        background-color: var(--ss-primary);
+        color: #fff;
+        border-radius: 3px;
+        padding: .5rem;
+    }
+
     .nav-link {
+        font-family: var(--ss-font-heading);
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--ss-primary);
+        background-color: transparent;
+
+        &:hover,
+        &:focus-visible,
         &.router-link-exact-active {
-            color: var(--navbar-active-color);
-            background-color: var(--nav-link-active-bg, var(--bg-2));
+            color: var(--ss-accent);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .navbar-nav {
+            gap: .25rem 1.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+    }
+
+    // In the phone drawer the links get the old site's teal dropdown look
+    @media (max-width: 767.98px) {
+        // Size the drawer to its links instead of Bootstrap's fixed 30vh
+        .drawer {
+            --drawer-height: auto;
+        }
+
+        .drawer .navbar-nav {
+            flex-direction: column;
+            width: 100%;
+            margin-left: 0 !important;
+        }
+
+        .drawer .nav-link {
+            padding: .75rem 1rem;
+            border-radius: 3px;
+
+            &.router-link-exact-active {
+                background-color: var(--ss-primary);
+                color: #fff;
+            }
         }
     }
 }

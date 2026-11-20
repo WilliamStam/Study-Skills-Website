@@ -5,6 +5,8 @@ import {resolve} from 'node:path';
 export default defineConfig({
     root: 'src',
     publicDir: '../public',
+    // Read .env files from the project root, not from the vite root (src/)
+    envDir: import.meta.dirname,
     // GitHub Pages serves project sites from /<repo>/ — the deploy workflow passes it in via BASE_PATH
     base: process.env.BASE_PATH || '/',
     plugins: [vue()],

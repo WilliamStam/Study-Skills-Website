@@ -1,16 +1,25 @@
 <script lang="ts" setup>
-const links = [
-    {name: 'home', label: 'Home', icon: 'fa-solid fa-house'},
-    {name: 'about', label: 'About', icon: 'fa-solid fa-circle-info'},
-    {name: 'contact', label: 'Contact', icon: 'fa-solid fa-envelope'},
-];
+import {useTemplateRef} from 'vue';
+import {useRouter} from 'vue-router';
+import Drawer from 'bootstrap/js/dist/drawer.js';
+import logo from '@/assets/images/logo.png';
+import {menu, site} from '@/site';
+
+const drawerEl = useTemplateRef<HTMLDialogElement>('drawer');
+
+// On phones the menu is a drawer: close it once a link has been followed
+useRouter().afterEach(() => {
+    if (drawerEl.value?.open) {
+        Drawer.getInstance(drawerEl.value)?.hide();
+    }
+});
 </script>
 
 <template>
-    <nav id="app-navbar" class="navbar md:navbar-expand fixed-top">
+    <header id="app-navbar" class="navbar md:navbar-expand">
         <div class="container">
             <router-link :to="{name: 'home'}" class="navbar-brand">
-                Study Skills Expert
+                <img :alt="site.name" :src="logo" class="navbar-logo" height="96" width="96"/>
             </router-link>
 
             <button
@@ -24,22 +33,20 @@ const links = [
             >
                 <span aria-hidden="true" class="navbar-toggler-icon"></span>
             </button>
-            <dialog id="navbarDrawer" aria-labelledby="navbarDrawerLabel" class="drawer drawer-top" tabindex="-1">
+            <dialog id="navbarDrawer" ref="drawer" aria-labelledby="navbarDrawerLabel" class="drawer drawer-top"
+                    tabindex="-1">
                 <div class="drawer-header">
                     <h5 id="navbarDrawerLabel" class="drawer-title">Menu</h5>
                     <button aria-label="Close" class="btn-close" data-bs-dismiss="drawer" type="button"></button>
                 </div>
-                <div class="drawer-body mb-2 md:mb-0">
-                    <ul class="nav navbar-nav me-auto">
-                        <li v-for="link in links" :key="link.name" class="nav-item">
-                            <router-link :to="{name: link.name}" class="nav-link">
-                                <font-awesome-icon :icon="link.icon" class="me-1"/>
-                                {{ link.label }}
-                            </router-link>
+                <div class="drawer-body">
+                    <ul class="nav navbar-nav ms-auto">
+                        <li v-for="link in menu" :key="link.name" class="nav-item">
+                            <router-link :to="{name: link.name}" class="nav-link">{{ link.label }}</router-link>
                         </li>
                     </ul>
                 </div>
             </dialog>
         </div>
-    </nav>
+    </header>
 </template>

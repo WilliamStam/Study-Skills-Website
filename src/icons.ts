@@ -1,11 +1,23 @@
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {
-    faCircleInfo,
-    faEnvelope,
-    faHouse,
-    faPaperPlane,
+    faBrain,
+    faGraduationCap,
+    faLocationDot,
+    faMinus,
+    faPaintbrush,
+    faPencil,
+    faPhone,
+    faPlus,
+    faQuoteLeft,
+    faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import {
+    faClock,
+    faEnvelope,
+    faFaceGrinBeam,
+    faLightbulb,
+} from "@fortawesome/free-regular-svg-icons";
+import {faFacebookF, faInstagram} from "@fortawesome/free-brands-svg-icons";
 
 /**
  * Only the icons the app uses are registered, so the rest of Font Awesome is tree-shaken out of
@@ -16,10 +28,22 @@ import {faGithub} from "@fortawesome/free-brands-svg-icons";
  */
 library.add(
     // fa-solid
-    faCircleInfo,
+    faBrain,
+    faGraduationCap,
+    faLocationDot,
+    faMinus,
+    faPaintbrush,
+    faPencil,
+    faPhone,
+    faPlus,
+    faQuoteLeft,
+    faTrophy,
+    // fa-regular
+    faClock,
     faEnvelope,
-    faHouse,
-    faPaperPlane,
+    faFaceGrinBeam,
+    faLightbulb,
     // fa-brands
-    faGithub,
+    faFacebookF,
+    faInstagram,
 );

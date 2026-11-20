@@ -1,12 +1,361 @@
 :root {
-    --app-navbar-height: 3.75rem;
+    --app-navbar-height: 7rem;
 }
 
-/* Keep scroll-into-view targets (e.g. jump to a script line) clear of the fixed navbar */
 html {
-    scroll-padding-top: var(--app-navbar-height);
+    scroll-padding-top: 1rem;
 }
 
-#app-content {
-    margin-top: var(--app-navbar-height);
+.section {
+    padding: 3.5rem 0;
+
+    @media (max-width: 767.98px) {
+        padding: 2.5rem 0;
+    }
+}
+
+// For pages without a hero: keep the content clear of the overlaid header
+.page-top {
+    padding-top: calc(var(--app-navbar-height) + 3rem);
+}
+
+// ---- Hero ----------------------------------------------------------------------------------
+
+.page-hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: var(--app-navbar-height) 0 3rem;
+    background: var(--hero-image) var(--hero-position) / cover no-repeat;
+
+    @media (max-width: 767.98px) {
+        // The phone crops have the photo's subject at the bottom, so the text goes at the top
+        align-items: flex-start;
+        min-height: 95svh;
+        padding-top: calc(var(--app-navbar-height) + 1.5rem);
+        background-image: var(--hero-image-mobile);
+        background-position: var(--hero-position-mobile);
+    }
+}
+
+.page-hero-content {
+    max-width: 48rem;
+
+    // Leave the right-hand side of the photo (where its subject is) clear on tablets
+    @media (min-width: 768px) {
+        width: 65%;
+    }
+}
+
+.hero-eyebrow {
+    font-family: var(--ss-font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ss-primary);
+    margin-bottom: .25rem;
+}
+
+.hero-title {
+    font-family: var(--ss-font-display);
+    font-size: clamp(2.25rem, 4vw + 1rem, 3rem);
+    line-height: 1.15;
+    margin: .3rem 0 .6rem;
+}
+
+.hero-subtitle {
+    font-family: var(--ss-font-heading);
+    font-size: 1.375rem;
+    color: var(--ss-primary);
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+    .hero-eyebrow {
+        font-size: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+}
+
+// ---- Section headings ----------------------------------------------------------------------
+
+.section-title {
+    font-size: 1.5625rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.375rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.section-label {
+    font-family: var(--ss-font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ss-primary);
+    margin: 1.25rem 0 .5rem;
+}
+
+.lead-text {
+    font-family: var(--ss-font-heading);
+    font-size: 1.125rem;
+    color: var(--ss-primary);
+}
+
+.cta-prompt {
+    font-family: var(--ss-font-heading);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--ss-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+.list-highlight li {
+    font-weight: 700;
+    color: var(--ss-primary);
+}
+
+// ---- Images --------------------------------------------------------------------------------
+
+.media-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+}
+
+.media-image-round {
+    display: block;
+    width: min(100%, 22rem);
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+// ---- Feature grid --------------------------------------------------------------------------
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--ss-secondary);
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.1875rem;
+    margin-bottom: .5rem;
+}
+
+.feature-text {
+    font-size: .875rem;
+    max-width: 22rem;
+    margin: 0;
+}
+
+// ---- Testimonials --------------------------------------------------------------------------
+
+.testimonial {
+    margin: 0;
+    padding: 1.75rem 2rem;
+    background-color: #fff;
+    border: 1px solid var(--ss-border);
+    border-radius: 4px;
+
+    blockquote {
+        margin: 1rem 0;
+    }
+
+    figcaption {
+        font-family: var(--ss-font-heading);
+        font-weight: 600;
+        color: var(--ss-primary);
+    }
+}
+
+.testimonial-mark {
+    font-size: 2rem;
+    color: var(--ss-accent);
+}
+
+.abigail-quote {
+    margin: 2rem 0 0;
+
+    blockquote {
+        margin-bottom: .75rem;
+    }
+
+    figcaption {
+        font-family: var(--ss-font-heading);
+        font-weight: 600;
+        color: var(--ss-primary);
+    }
+}
+
+// ---- Steps (tutoring "How it works") -------------------------------------------------------
+
+.steps {
+    list-style: none;
+    padding: 0;
+
+    li + li {
+        margin-top: 1rem;
+    }
+
+    strong {
+        display: block;
+        font-family: var(--ss-font-heading);
+        font-weight: 600;
+        color: var(--ss-primary);
+    }
+}
+
+// ---- FAQ accordion -------------------------------------------------------------------------
+
+.faq {
+    details {
+        border: 1px solid var(--ss-border);
+
+        & + details {
+            margin-top: .75rem;
+        }
+    }
+
+    summary {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: .75rem 1.25rem;
+        font-family: var(--ss-font-heading);
+        color: var(--ss-primary);
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::before {
+            content: "+";
+            width: 1ch;
+            font-size: 1.25rem;
+            line-height: 1;
+            color: var(--ss-primary);
+        }
+    }
+
+    details[open] > summary {
+        color: var(--ss-accent);
+
+        &::before {
+            content: "−";
+            color: var(--ss-accent);
+        }
+    }
+
+    .faq-body {
+        padding: .25rem 1.25rem 1.25rem;
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// ---- Contact page --------------------------------------------------------------------------
+
+.contact-heading {
+    font-size: 1.75rem;
+    margin: 0 0 .75rem;
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+}
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: .75rem;
+    margin: 0;
+    color: var(--ss-text);
+    text-decoration: none;
+
+    svg {
+        color: var(--ss-accent);
+        font-size: 1.25rem;
+        width: 1.25rem;
+    }
+}
+
+a.contact-item:hover {
+    color: var(--ss-primary);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 2rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.social-links-accent a {
+    color: var(--ss-accent);
+
+    &:hover {
+        color: var(--ss-accent-hover);
+    }
+}
+
+.contact-map {
+    display: block;
+    width: 100%;
+    height: 400px;
+    border: 0;
+}
+
+// ---- Forms ---------------------------------------------------------------------------------
+
+.form-card {
+    padding: 1.25rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 18px rgb(0 0 0 / 10%);
+}
+
+.form-card .alert {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    border-color: #dadada;
+    border-radius: 3px;
+}
+
+.sign-up-form .form-control {
+    border-color: #69727d;
+}
+
+// Bootstrap 6 validates with [data-bs-validate] and :user-invalid; these forms show errors once
+// a submit has been attempted instead
+.was-validated {
+    .form-control:invalid {
+        border-color: var(--danger-border);
+    }
+
+    .form-control:invalid ~ .invalid-feedback {
+        display: block;
+    }
 }

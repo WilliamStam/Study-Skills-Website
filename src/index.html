@@ -1,20 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <script>
-      (() => {
-          const theme = localStorage.getItem("theme") || "auto";
-          const resolvedTheme = theme === "auto"
-              ? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-              : theme;
+    <title>Study Skills Course &amp; Tutoring | Study Skills Expert</title>
+    <meta name="description"
+          content="Help your child improve grades, reduce test anxiety &amp; master memory techniques with our interactive Study Skills Course and tutoring for Grades 0-12."/>
+    <meta name="theme-color" content="#3290AC"/>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 
-          document.documentElement.setAttribute("data-bs-theme", resolvedTheme);
-      })();
-    </script>
-    <title>Study Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400&family=Montserrat:wght@400;500;600&family=Open+Sans:wght@400;600;700&display=swap"/>
   </head>
   <body>
     <div id="app"></div>
